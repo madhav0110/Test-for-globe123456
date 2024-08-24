@@ -1,29 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Use correct character set. -->
-    <meta charset="utf-8" />
-    <!-- Tell IE to use the latest, best version. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-    />
-    <title>Cesium Viewer</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="CesiumViewer.css" media="screen" />
-  </head>
-  <body style="background: #000">
-    <div id="cesiumContainer" class="fullWindow"></div>
-    <div id="loadingIndicator" class="loadingIndicator"></div>
-    <script src="CesiumViewer.js" type="module"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Cesium Globe with Custom Home Button</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <style>
-      @import url(../templates/bucket.css);
+        @import url('https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css');
+        html, body, #cesiumContainer {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+        }
+
+        /* Custom home button style */
+        #customHomeButton {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            width: 50px;
+            height: 50px;
+            background: url('/images/home-button.png') no-repeat center center; /* Path to PNG image */
+            background-size: contain;
+            border: none; /* Remove border */
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Hide Cesium default home button */
+        .cesium-home-button {
+            display: none !important;
+        }
     </style>
-    <div id="cesiumContainer" class="fullSize"></div>
-    <div id="loadingOverlay"><h1>Loading...</h1></div>
-    <div id="toolbar"></div>
-    
-  </body>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+    <button id="customHomeButton"></button> <!-- Custom button -->
+
+    <script>
+        // Set your Cesium Ion Access Token here
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlZjYxOTVkMi00ZmMwLTQyYzEtYWE4MS1iNWY3MTIxMmY4NjMiLCJpZCI6MjM1ODI3LCJpYXQiOjE3MjQ0Nzk4NzZ9.fD8IztW2dCnWaC0xNWNI1x3yrCouArTjLgFZETy7elg'; // Replace with your actual token
+
+        // Initialize Cesium Viewer
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            animation: false,           // Remove animation controls
+            timeline: false,            // Remove timeline
+            fullscreenButton: false,    // Remove fullscreen button
+            sceneModePicker: false,     // Remove scene mode picker
+            navigationHelpButton: false,// Remove navigation help button
+            geocoder: false,            // Remove geocoder search box
+            infoBox: false,             // Remove the info box
+            selectionIndicator: false,  // Remove selection indicator
+            navigationInstructionsInitiallyVisible: false, // Disable navigation instructions
+            baseLayerPicker: false,     // Disable base layer picker (imagery button)
+            homeButton: false,          // Disable home button
+        });
+
+        // Set initial view
+        viewer.scene.camera.setView({
+            destination: Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 8000000.0) // Example coordinates
+        });
+
+        // Define your custom home location
+        const homeLocation = Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 5000000.0); // Replace with desired coordinates
+
+        // Add click event for custom button with smooth animation
+        document.getElementById('customHomeButton').addEventListener('click', () => {
+            viewer.scene.camera.flyTo({
+                destination: homeLocation,
+                duration: 2, // Duration of the animation in seconds
+                complete: function() {
+                    console.log('Camera animation complete');
+                }
+            });
+        });
+
+        // Hide Cesium ion credit message
+        viewer.scene.frameState.creditDisplay.showCredit = function() {};
+    </script>
+</body>
 </html>
