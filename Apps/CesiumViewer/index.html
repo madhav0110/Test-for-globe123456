@@ -11,15 +11,21 @@
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
         }
 
-        /* Custom home button style */
-        #customHomeButton {
+        /* Container for positioning the button */
+        #buttonContainer {
             position: absolute;
             bottom: 30px;
             left: 40px;
             width: 50px;
             height: 50px;
-            background: url('background: url('https://raw.githubusercontent.com/madhav0110/Test-for-globe123456/main/Apps/CesiumViewer/Images/home-button.svg') no-repeat center center;
-') no-repeat center center; /* Path to PNG image */
+            /* You can style this container if needed */
+        }
+
+        /* Custom home button style */
+        #customHomeButton {
+            width: 100%;
+            height: 100%;
+            background: url('https://raw.githubusercontent.com/madhav0110/Test-for-globe123456/main/Apps/CesiumViewer/Images/home-button.svg') no-repeat center center;
             background-size: contain;
             border: none; /* Remove border */
             cursor: pointer;
@@ -34,7 +40,9 @@
 </head>
 <body>
     <div id="cesiumContainer"></div>
-    <button id="customHomeButton"></button> <!-- Custom button -->
+    <div id="buttonContainer">
+        <button id="customHomeButton"></button> <!-- Custom button -->
+    </div>
 
     <script>
         // Set your Cesium Ion Access Token here
