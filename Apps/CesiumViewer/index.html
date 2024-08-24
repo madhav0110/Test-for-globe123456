@@ -2,35 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cesium Globe with Custom Home Button</title>
+    <title>Cesium Globe with Custom Buttons</title>
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <style>
-        @import url('https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css');
         html, body, #cesiumContainer {
             width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
         }
+        /* Style for the container */
+#slideshow-container {
+  position: relative;
+  display: inline-block;
+}
 
-        /* Container for positioning the button */
-        #buttonContainer {
-            position: absolute;
-            bottom: 30px;
-            left: 40px;
-            width: 50px;
-            height: 50px;
-            /* You can style this container if needed */
-        }
+/* Style for the button */
+#slideshow-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 
-        /* Custom home button style */
-        #customHomeButton {
-            width: 100%;
-            height: 100%;
-            background: url('https://raw.githubusercontent.com/madhav0110/Test-for-globe123456/main/Apps/CesiumViewer/Images/home-button.svg') no-repeat center center;
-            background-size: contain;
+/* Style for the button image */
+#slideshow-button img {
+  width: 40px; /* Adjust the size as needed */
+  height: auto;
+}
+
+/* Style for the progress bar */
+#progress-bar {
+  height: 4px;
+  background: #ddd; /* Background color of the bar */
+  border-radius: 2px;
+  position: absolute;
+  bottom: -8px; /* Adjust to position the bar correctly */
+  left: 0;
+  right: 0;
+  visibility: hidden; /* Hide the progress bar initially */
+}
+
+#progress-bar .progress {
+  height: 100%;
+  width: 0;
+  background: #4caf50; /* Color of the progress */
+  border-radius: 2px;
+  transition: width 0.1s linear; /* Smooth transition for progress change */
+}
+
+
+        /* Button common styles */
+        .customButton {
+            width: 80px;
+            height: 80px;
             border: none; /* Remove border */
             cursor: pointer;
             z-index: 1000;
+            background: transparent; /* Remove default background */
         }
+
+        .customButton svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Positioning for home button */
+        #customHomeButton {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Positioning for slideshow button */
+        #slideshowButton {
+            position: absolute;
+            bottom: 20px;
+            right: 80px;
+        }
+        
 
         /* Hide Cesium default home button */
         .cesium-home-button {
@@ -40,14 +88,64 @@
 </head>
 <body>
     <div id="cesiumContainer"></div>
-    <div id="buttonContainer">
-        <button id="customHomeButton"></button> <!-- Custom button -->
-    </div>
+    <div id="slideshow-container">
+        <button id="slideshow-button">
+          <img src="path/to/your/slideshow-icon.svg" alt="Slideshow">
+        </button>
+        <div id="progress-bar"></div>
+      </div>
+      
+    <button id="customHomeButton" class="customButton">
+        <!-- Custom Home Button SVG -->
+        <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_bd_1_161)">
+                <rect width="64" height="64" rx="32" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 82)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                <path d="M61.0001 57.9998C61.0001 58.5521 60.5524 58.9998 60.0001 58.9998H44.0001C43.4478 58.9998 43.0001 58.5521 43.0001 57.9998V47.4888C43.0001 47.1802 43.1426 46.8889 43.3862 46.6995L51.3862 40.4772C51.7473 40.1964 52.2529 40.1964 52.614 40.4772L60.614 46.6995C60.8576 46.8889 61.0001 47.1802 61.0001 47.4888V57.9998ZM51.0001 50.9998V56.9998H53.0001V50.9998H51.0001Z" fill="white"/>
+            </g>
+            <defs>
+                <filter id="filter0_bd_1_161" x="-4" y="-6" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="12"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_161"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="2"/>
+                    <feGaussianBlur stdDeviation="10"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+                    <feBlend mode="normal" in2="effect1_backgroundBlur_1_161" result="effect2_dropShadow_1_161"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_161" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
+    </button>
+    <button id="slideshowButton" class="customButton">
+        <!-- Slideshow Button SVG -->
+        <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_bd_1_158)">
+                <rect width="64" height="64" rx="32" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 82)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                <path d="M52.9998 56.0002V58.0002H56.9998V60.0002H46.9998V58.0002H50.9998V56.0002H42.9998C42.4475 56.0002 41.9998 55.5525 41.9998 55.0002V42.0002C41.9998 41.4479 42.4475 41.0002 42.9998 41.0002H60.9998C61.5521 41.0002 61.9998 41.4479 61.9998 42.0002V55.0002C61.9998 55.5525 61.5521 56.0002 60.9998 56.0002H52.9998ZM49.9998 45.5002V51.5002L54.9998 48.5002L49.9998 45.5002Z" fill="white"/>
+            </g>
+            <defs>
+                <filter id="filter0_bd_1_158" x="-4" y="-6" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="12"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_158"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="2"/>
+                    <feGaussianBlur stdDeviation="10"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+                    <feBlend mode="normal" in2="effect1_backgroundBlur_1_158" result="effect2_dropShadow_1_158"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_158" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
+    </button>
 
     <script>
         // Set your Cesium Ion Access Token here
         Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlZjYxOTVkMi00ZmMwLTQyYzEtYWE4MS1iNWY3MTIxMmY4NjMiLCJpZCI6MjM1ODI3LCJpYXQiOjE3MjQ0Nzk4NzZ9.fD8IztW2dCnWaC0xNWNI1x3yrCouArTjLgFZETy7elg'; // Replace with your actual token
-
+    
         // Initialize Cesium Viewer
         const viewer = new Cesium.Viewer('cesiumContainer', {
             animation: false,           // Remove animation controls
@@ -59,19 +157,19 @@
             infoBox: false,             // Remove the info box
             selectionIndicator: false,  // Remove selection indicator
             navigationInstructionsInitiallyVisible: false, // Disable navigation instructions
-            baseLayerPicker: false,     // Disable base layer picker (imagery button)
-            homeButton: false,          // Disable home button
+            baseLayerPicker: true,     // Disable base layer picker (imagery button)
+            homeButton: true,          // Disable home button
         });
-
+    
         // Set initial view
         viewer.scene.camera.setView({
             destination: Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 8000000.0) // Example coordinates
         });
-
+    
         // Define your custom home location
         const homeLocation = Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 5000000.0); // Replace with desired coordinates
-
-        // Add click event for custom button with smooth animation
+    
+        // Add click event for custom home button with smooth animation
         document.getElementById('customHomeButton').addEventListener('click', () => {
             viewer.scene.camera.flyTo({
                 destination: homeLocation,
@@ -81,9 +179,34 @@
                 }
             });
         });
-
+    
+        // Example action for the slideshow button
+        document.getElementById('slideshowButton').addEventListener('click', () => {
+            alert('Slideshow button clicked!');
+        });
+    
         // Hide Cesium ion credit message
         viewer.scene.frameState.creditDisplay.showCredit = function() {};
+    
+        // Add your custom 3D models
+        const modelPositions = [
+            { position: Cesium.Cartesian3.fromDegrees(-75.10, 39.57, 1000), uri: 'path/to/your/model1.obj' },
+            { position: Cesium.Cartesian3.fromDegrees(-80.12, 25.46, 1200), uri: 'path/to/your/model2.obj' },
+            // Add more models as needed
+        ];
+    
+        modelPositions.forEach(model => {
+            viewer.scene.primitives.add(new Cesium.Model.fromGltf({
+                url : model.uri,
+                modelMatrix : Cesium.Transforms.headingPitchRollToFixedFrame(
+                    model.position,
+                    new Cesium.HeadingPitchRoll(0, 0, 0),
+                    Cesium.Transforms.eastNorthUpToFixedFrame(model.position)
+                ),
+                scale : 1.0 // Adjust the scale as needed
+            }));
+        });
     </script>
+    
 </body>
 </html>
