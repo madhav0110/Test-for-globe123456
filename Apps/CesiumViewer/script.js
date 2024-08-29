@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Set your Cesium Ion Access Token here
-    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlZjYxOTVkMi00ZmMwLTQyYzEtYWE4MS1iNWY3MTIxMmY4NjMiLCJpZCI6MjM1ODI3LCJpYXQiOjE3MjQ0Nzk4NzZ9.fD8IztW2dCnWaC0xNWNI1x3yrCouArTjLgFZETy7elg'; // Replace with your actual token
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYzBmM2QwOS1lYTY1LTRjZjctYWE4My00NGM4MjRkZDJmNTYiLCJpZCI6MjM1ODI3LCJpYXQiOjE3MjQxNDA4NjJ9.03WlBZtttyWCNKOdpCLyYPCpwVTqcQYY5CXKfNz--6w'; // Replace with your actual token
 
     // Initialize Cesium Viewer
     const viewer = new Cesium.Viewer('cesiumContainer', {
