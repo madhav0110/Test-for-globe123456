@@ -1,0 +1,86 @@
+html, body, #cesiumContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Style for the container */
+#slideshow-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button */
+#slideshow-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Style for the button image */
+#slideshow-button img {
+    width: 40px; /* Adjust the size as needed */
+    height: auto;
+}
+
+/* Style for the progress bar */
+#progress-bar {
+    height: 4px;
+    background: #ddd; /* Background color of the bar */
+    border-radius: 2px;
+    position: absolute;
+    bottom: -8px; /* Adjust to position the bar correctly */
+    left: 0;
+    right: 0;
+    visibility: hidden; /* Hide the progress bar initially */
+}
+
+#progress-bar .progress {
+    height: 100%;
+    width: 0;
+    background: #000000; /* Color of the progress */
+    border-radius: 2px;
+    transition: width 0.1s linear; /* Smooth transition for progress change */
+}
+
+/* Button common styles */
+.customButton {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove border */
+    cursor: pointer;
+    z-index: 1000;
+    background: transparent; /* Remove default background */
+}
+
+.customButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+ /* Positioning for home button */
+ #customHomeButton {
+    position: absolute;
+    bottom: 260px;
+    right: 0px;
+}
+
+/* Positioning for slideshow button */
+#slideshowButton {
+    position: absolute;
+    bottom: 200px;
+    right: 0px;
+}
+.hover-card {
+    /* Ensure it's styled properly */
+    position: absolute;
+    background: rgb(113, 111, 111);
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}

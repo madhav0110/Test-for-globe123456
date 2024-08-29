@@ -5,96 +5,17 @@
     <title>Cesium Globe with Custom Buttons</title>
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
-    <style>
-        html, body, #cesiumContainer {
-            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
-        }
-        /* Style for the container */
-#slideshow-container {
-  position: relative;
-  display: inline-block;
-}
-
-/* Style for the button */
-#slideshow-button {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-/* Style for the button image */
-#slideshow-button img {
-  width: 40px; /* Adjust the size as needed */
-  height: auto;
-}
-
-/* Style for the progress bar */
-#progress-bar {
-  height: 4px;
-  background: #ddd; /* Background color of the bar */
-  border-radius: 2px;
-  position: absolute;
-  bottom: -8px; /* Adjust to position the bar correctly */
-  left: 0;
-  right: 0;
-  visibility: hidden; /* Hide the progress bar initially */
-}
-
-#progress-bar .progress {
-  height: 100%;
-  width: 0;
-  background: #4caf50; /* Color of the progress */
-  border-radius: 2px;
-  transition: width 0.1s linear; /* Smooth transition for progress change */
-}
-
-
-        /* Button common styles */
-        .customButton {
-            width: 80px;
-            height: 80px;
-            border: none; /* Remove border */
-            cursor: pointer;
-            z-index: 1000;
-            background: transparent; /* Remove default background */
-        }
-
-        .customButton svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Positioning for home button */
-        #customHomeButton {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-        }
-
-        /* Positioning for slideshow button */
-        #slideshowButton {
-            position: absolute;
-            bottom: 20px;
-            right: 80px;
-        }
-        
-
-        /* Hide Cesium default home button */
-        .cesium-home-button {
-            display: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+   
 </head>
 <body>
     <div id="cesiumContainer"></div>
     <div id="slideshow-container">
         <button id="slideshow-button">
-          <img src="path/to/your/slideshow-icon.svg" alt="Slideshow">
+            <img src="path/to/your/slideshow-icon.svg" alt="Slideshow">
         </button>
         <div id="progress-bar"></div>
-      </div>
-      
+    </div>
     <button id="customHomeButton" class="customButton">
         <!-- Custom Home Button SVG -->
         <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,71 +63,8 @@
         </svg>
     </button>
 
-    <script>
-        // Set your Cesium Ion Access Token here
-        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlZjYxOTVkMi00ZmMwLTQyYzEtYWE4MS1iNWY3MTIxMmY4NjMiLCJpZCI6MjM1ODI3LCJpYXQiOjE3MjQ0Nzk4NzZ9.fD8IztW2dCnWaC0xNWNI1x3yrCouArTjLgFZETy7elg'; // Replace with your actual token
-    
-        // Initialize Cesium Viewer
-        const viewer = new Cesium.Viewer('cesiumContainer', {
-            animation: false,           // Remove animation controls
-            timeline: false,            // Remove timeline
-            fullscreenButton: false,    // Remove fullscreen button
-            sceneModePicker: false,     // Remove scene mode picker
-            navigationHelpButton: false,// Remove navigation help button
-            geocoder: false,            // Remove geocoder search box
-            infoBox: false,             // Remove the info box
-            selectionIndicator: false,  // Remove selection indicator
-            navigationInstructionsInitiallyVisible: false, // Disable navigation instructions
-            baseLayerPicker: true,     // Disable base layer picker (imagery button)
-            homeButton: true,          // Disable home button
-        });
-    
-        // Set initial view
-        viewer.scene.camera.setView({
-            destination: Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 8000000.0) // Example coordinates
-        });
-    
-        // Define your custom home location
-        const homeLocation = Cesium.Cartesian3.fromDegrees(78.9629, 20.5937, 5000000.0); // Replace with desired coordinates
-    
-        // Add click event for custom home button with smooth animation
-        document.getElementById('customHomeButton').addEventListener('click', () => {
-            viewer.scene.camera.flyTo({
-                destination: homeLocation,
-                duration: 2, // Duration of the animation in seconds
-                complete: function() {
-                    console.log('Camera animation complete');
-                }
-            });
-        });
-    
-        // Example action for the slideshow button
-        document.getElementById('slideshowButton').addEventListener('click', () => {
-            alert('Slideshow button clicked!');
-        });
-    
-        // Hide Cesium ion credit message
-        viewer.scene.frameState.creditDisplay.showCredit = function() {};
-    
-        // Add your custom 3D models
-        const modelPositions = [
-            { position: Cesium.Cartesian3.fromDegrees(12.389749, 45.430394, 41.978454), uri: 'https://github.com/madhav0110/Test-for-globe123456/blob/main/Apps/CesiumViewer/Images/building_04.gltf' },
-            { position: Cesium.Cartesian3.fromDegrees(-80.12, 25.46, 1200), uri: 'path/to/your/model2.obj' },
-            // Add more models as needed
-        ];
-    
-        modelPositions.forEach(model => {
-            viewer.scene.primitives.add(new Cesium.Model.fromGltf({
-                url : model.uri,
-                modelMatrix : Cesium.Transforms.headingPitchRollToFixedFrame(
-                    model.position,
-                    new Cesium.HeadingPitchRoll(0, 0, 0),
-                    Cesium.Transforms.eastNorthUpToFixedFrame(model.position)
-                ),
-                scale : 10.0 // Adjust the scale as needed
-            }));
-        });
-    </script>
-    
+    <div id="hover-card" class="hover-card"></div> <!-- Placeholder for hover card -->
+
+    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
 </body>
 </html>
