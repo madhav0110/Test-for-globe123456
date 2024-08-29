@@ -1,0 +1,88 @@
+html, body, #cesiumContainer {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Style for the container */
+#slideshow-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the button */
+#slideshow-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Style for the button image */
+#slideshow-button img {
+    width: 40px; /* Adjust the size as needed */
+    height: auto;
+}
+
+#progressContainer {
+    position: absolute;
+    bottom: 210px;
+    right: -1px;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #638BBF;
+    transition: width 0.1s linear;
+    border-radius: 5px;
+}
+
+
+/* Button common styles */
+.customButton {
+    width: 80px;
+    height: 80px;
+    border: none; /* Remove border */
+    cursor: pointer;
+    z-index: 1000;
+    background: transparent; /* Remove default background */
+}
+
+.customButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+ /* Positioning for home button */
+ #customHomeButton {
+    position: absolute;
+    bottom: 260px;
+    right: 0px;
+}
+
+/* Positioning for slideshow button */
+#slideshowButton {
+    position: absolute;
+    bottom: 200px;
+    right: 0px;
+}
+.hover-card {
+    /* Ensure it's styled properly */
+    position: absolute;
+    background: rgb(113, 111, 111);
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
