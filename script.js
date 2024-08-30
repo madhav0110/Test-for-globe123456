@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { // Top view
                     longitude: 72.259218,
                     latitude: 22.974892,
-                    altitude: 800.0,
+                    altitude: 1200.0,
                     heading: Cesium.Math.toRadians(0),
                     pitch: Cesium.Math.toRadians(-90),
                     roll: Cesium.Math.toRadians(0)
