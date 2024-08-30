@@ -76,13 +76,27 @@ html, body, #cesiumContainer {
     bottom: 200px;
     right: 0px;
 }
-.hover-card {
-    /* Ensure it's styled properly */
+#hover-card {
     position: absolute;
-    background: rgb(113, 111, 111);
-    border: 1px solid #ccc;
-    padding: 10px;
     display: none; /* Initially hidden */
-    z-index: 1000;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+    max-width: 200px;
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+
+/* Style for pin hover card */
+.pin-hover-card {
+    background-color: lightblue;
+    border-color: blue;
+}
+
+/* Style for model hover card */
+.model-hover-card {
+    background-color: lightgreen;
+    border-color: green;
 }
