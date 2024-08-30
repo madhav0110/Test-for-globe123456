@@ -79,9 +79,11 @@ html, body, #cesiumContainer {
 #hover-card {
     position: absolute;
     display: none; /* Initially hidden */
-    background-color: white;
+    background-color: #6595BF;
     border: 1px solid #ccc;
+    text-align: center;
     border-radius: 8px;
+    color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 10px;
     max-width: 200px;
