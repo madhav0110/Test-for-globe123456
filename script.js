@@ -33,53 +33,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
     // Define locations and camera views for the slideshow and 3D models
     var locations = [
-        {
-            longitude: 72.4260, 
-            latitude: 23.0278, 
-            altitude: 10.0,
-            description: '<div><h3>Anant University - (Phase II)</h3><p>Student Housing, Academic Blocks constructed in Phase 2 of the Anant University Expansion.</p></div>',
-            pinDescription: '<div><h3>Anant University - (Phase II)</h3><p>Ahmedabad, Gujarat</p></div>',
-            model: 'Assets/basic_factory_modeling.glb',
-            scale: 10,
-            cameraViews: [
-                { // Top view
-                    longitude: 72.4260,
-                    latitude: 23.0278,
-                    altitude: 2000.0,
-                    heading: Cesium.Math.toRadians(0),
-                    pitch: Cesium.Math.toRadians(-90),
-                    roll: Cesium.Math.toRadians(0)
-                },
-                { // Side view
-                    longitude: 72.4260 -0.008, // Adjusted longitude offset
-                    latitude: 23.0278,
-                    altitude: 300.0,
-                    heading: Cesium.Math.toRadians(90), // Facing towards the side
-                    pitch: Cesium.Math.toRadians(-30),
-                    roll: Cesium.Math.toRadians(0)
-                }
-            ],
-            modelOrientation: {
-                heading: Cesium.Math.toRadians(0), // Example heading
-                pitch: Cesium.Math.toRadians(0),   // Example pitch
-                roll: Cesium.Math.toRadians(0)      // Example roll
-            }
-        },
+        
         {
             longitude: 73.735145, 
             latitude: 18.67976, 
             altitude: 20.0,
-            description: '<div><h3>Pune Metro Line 03 (PMR -10)</h3><p>Pune Metro Line 03 is of 23 km length elevated metro corridor consists 23 stations. Currently we are working on one specific Metro Station PMR10 at Balewadi Stadium.</p></div>',
-            pinDescription: '<div><h3>Pune Metro Line 03 (PMR -10)</h3><p>Pune, Maharashtra (Shivajinagar to Hinjewadi)</p></div>',
+            description: `
+            <div>
+                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style-small">
+                <h3>Pune Metro Line 03 (PMR -10)</h3>
+                <p class="description description-1">Pune Metro Line 03 is of 23 km length elevated metro corridor consists 23 stations. Currently we are working on one specific Metro Station PMR10 at Balewadi Stadium.</p>
+                <p class="description Location">Pune, Maharashtra </p>
+            </div>
+        `,
+        pinDescription: `
+            <div>
+                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style">
+                <h3>Pune Metro Line 03 (PMR -10)</h3>
+                <p class="description description-1">Pune Metro Line 03 is of 23 km length elevated metro corridor consists 23 stations. Currently we are working on one specific Metro Station PMR10 at Balewadi Stadium.</p>
+                <p class="description Location">Pune, Maharashtra </p>
+            </div>
+        `,            
             model: 'Assets/elevated_mumbai_metro_station.glb',
             scale: 0.0008,
             cameraViews: [
                 { // Top view
                     longitude: 73.734543,
                     latitude: 18.680418,
-                    altitude: 1000.0,
+                    altitude: 500.0,
                     heading: Cesium.Math.toRadians(0),
                     pitch: Cesium.Math.toRadians(-90),
                     roll: Cesium.Math.toRadians(0)
@@ -91,6 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     heading: Cesium.Math.toRadians(90), // Facing towards the side
                     pitch: Cesium.Math.toRadians(-30),
                     roll: Cesium.Math.toRadians(0)
+                },
+                { // Side view
+                    longitude: 73.734543 +0.002, // Adjusted longitude offset
+                    latitude: 18.680418,
+                    altitude: 100.0,
+                    heading: Cesium.Math.toRadians(260), // Facing towards the side
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: Cesium.Math.toRadians(0)
                 }
             ],
             modelOrientation: {
@@ -100,27 +92,103 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         {
-            longitude: 72.375511, 
-            latitude: 22.991289, 
+            longitude: 72.246281, 
+            latitude: 22.501834, 
             altitude: 1000.0,
-            description: '<div><h3>Micron Factory, Sanand</h3><p>Semiconductor Manufacturing Facility. We are working on the Phase 1 of the project with Tata Projects.</p></div>',
-            pinDescription: '<div><h3>Micron Factory, Sanand</h3><p>Ahmedabad, Gujarat</p></div>',
-            model: 'Assets/metallic_showroom_gallery.glb',
-            scale: 0.3,
+            description: `
+            <div>
+                <img src="Assets/Lothal.png" alt="Lothal" class="image-style-small">
+                <h3>Lothal Museum<br>(NMHC)</h3>
+                <p class="description description-1">National Maritime Heritage Complex is the Heritage Museum being built at Lothal. We're working on Phase IA of the project.</p>
+                <p class="description Location">Ahmedabad, Gujarat</p>
+            </div>
+        `,
+        pinDescription: `
+            <div>
+                <img src="Assets/Lothal.png" alt="Lothal" class="image-style">
+                <h3>Lothal Museum<br>(NMHC)</h3>
+                <p class="description description-1">National Maritime Heritage Complex is the Heritage Museum being built at Lothal. We're working on Phase IA of the project.</p>
+                <p class="description Location">Ahmedabad, Gujarat</p>
+            </div>
+        `,
+            model: 'Assets/mv_spartan.glb',
+            scale: 5.6,
             cameraViews: [
                 { // Top view
-                    longitude: 72.375511,
-                    latitude: 22.991289,
-                    altitude: 2000.0,
+                    longitude: 72.246281,
+                    latitude: 22.501834,
+                    altitude: 500.0,
                     heading: Cesium.Math.toRadians(0),
                     pitch: Cesium.Math.toRadians(-90),
                     roll: Cesium.Math.toRadians(0)
                 },
                 { // Side view
-                    longitude: 72.375511 -0.008, // Adjusted longitude offset
-                    latitude: 22.991289,
-                    altitude: 500.0,
+                    longitude: 72.246281 -0.002, // Adjusted longitude offset
+                    latitude: 22.501834,
+                    altitude: 125.0,
                     heading: Cesium.Math.toRadians(90), // Facing towards the side
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: Cesium.Math.toRadians(0)
+                },
+                { // Side view
+                    longitude: 72.246281 +0.002, // Adjusted longitude offset
+                    latitude: 22.501834,
+                    altitude: 125.0,
+                    heading: Cesium.Math.toRadians(260), // Facing towards the side
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: Cesium.Math.toRadians(0)
+                }
+            ],
+            modelOrientation: {
+                heading: Cesium.Math.toRadians(0), // Example heading
+                pitch: Cesium.Math.toRadians(0),    // Example pitch
+                roll: Cesium.Math.toRadians(0)     // Example roll
+            }
+        },
+        {
+            longitude: 72.425432, 
+            latitude: 23.026609, 
+            altitude: 10.0,
+            description: `
+            <div>
+                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style-small">
+                <h3>Anant University</h3>
+                <p class="description description-1">Student Housing, Academic Blocks constructed in Phase 2 of the Anant University Expansion.</p>
+                <p class="description Location">Ahmedabad, Gujarat</p>
+            </div>
+        `,
+        pinDescription: `
+            <div>
+                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style">
+                <h3>Anant University</h3>
+                <p class="description description-1">Student Housing, Academic Blocks constructed in Phase 2 of the Anant University Expansion.</p>
+                <p class="description Location">Ahmedabad, Gujarat</p>
+            </div>
+        `,
+            model: 'Assets/basic_factory_modeling.glb',
+            scale: 4,
+            cameraViews: [
+                { // Top view
+                    longitude: 72.425432,
+                    latitude: 23.026609,
+                    altitude: 500.0,
+                    heading: Cesium.Math.toRadians(0),
+                    pitch: Cesium.Math.toRadians(-90),
+                    roll: Cesium.Math.toRadians(0)
+                },
+                { // Side view
+                    longitude: 72.425432 -0.002, // Adjusted longitude offset
+                    latitude: 23.026609,
+                    altitude: 100.0,
+                    heading: Cesium.Math.toRadians(90), // Facing towards the side
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: Cesium.Math.toRadians(0)
+                },
+                { // Side view
+                    longitude: 72.425432 +0.002, // Adjusted longitude offset
+                    latitude: 23.026609,
+                    altitude: 100.0,
+                    heading: Cesium.Math.toRadians(260), // Facing towards the side
                     pitch: Cesium.Math.toRadians(-30),
                     roll: Cesium.Math.toRadians(0)
                 }
@@ -132,72 +200,115 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         {
-            longitude: 85.0139, 
-            latitude: 20.9051, 
+            longitude: 72.259218, 
+            latitude: 22.974892, 
             altitude: 1000.0,
-            description: '<div><h3>Angul Plant</h3><p>Coke Oven and Blast Furnace Plant from JSOL at Angul</p></div>',
-            pinDescription: '<div><h3>Angul Plant</h3><p> Angul, Odisha</p></div>',
-            model: 'Assets/mv_spartan.glb',
-            scale: 30,
+            description: `
+        <div>
+                <img src="Assets/Micron.png" alt="Micron" class="image-style-small">
+            <h3>Micron Factory, Sanand</h3>
+            <p class="description description-1">Semiconductor Manufacturing Facility. We're working on the Phase 1 of the project with Tata Projects.</p>
+            <p class="description Location">Ahmedabad, Gujarat</p>
+        </div>
+    `,
+    pinDescription: `
+        <div>
+                <img src="Assets/Micron.png" alt="Micron" class="image-style">
+            <h3>Micron Factory, Sanand</h3>
+            <p class="description description-1">Semiconductor Manufacturing Facility. We're working on the Phase 1 of the project with Tata Projects.</p>
+                <p class="description Location">Ahmedabad, Gujarat</p>
+        </div>
+    `,
+            model: 'Assets/metallic_showroom_gallery.glb',
+            scale: 0.25,
             cameraViews: [
                 { // Top view
-                    longitude: 85.0139,
-                    latitude: 20.9051,
-                    altitude: 2000.0,
+                    longitude: 72.259218,
+                    latitude: 22.974892,
+                    altitude: 800.0,
                     heading: Cesium.Math.toRadians(0),
                     pitch: Cesium.Math.toRadians(-90),
                     roll: Cesium.Math.toRadians(0)
                 },
                 { // Side view
-                    longitude: 85.0139 -0.008, // Adjusted longitude offset
-                    latitude: 20.9051,
+                    longitude: 72.259218 -0.008, // Adjusted longitude offset
+                    latitude: 22.974892,
                     altitude: 500.0,
                     heading: Cesium.Math.toRadians(90), // Facing towards the side
+                    pitch: Cesium.Math.toRadians(-30),
+                    roll: Cesium.Math.toRadians(0)
+                },
+                { // Side view
+                    longitude: 72.259218 +0.008, // Adjusted longitude offset
+                    latitude: 22.974892,
+                    altitude: 500.0,
+                    heading: Cesium.Math.toRadians(260), // Facing towards the side
                     pitch: Cesium.Math.toRadians(-30),
                     roll: Cesium.Math.toRadians(0)
                 }
             ],
             modelOrientation: {
-                heading: Cesium.Math.toRadians(0), // Example heading
+                heading: Cesium.Math.toRadians(90), // Example heading
                 pitch: Cesium.Math.toRadians(0),   // Example pitch
-                roll: Cesium.Math.toRadians(0)     // Example roll
+                roll: Cesium.Math.toRadians(0)      // Example roll
             }
         },
         {
-            longitude: 72.23992864, 
-            latitude: 22.50840567, 
+            longitude: 85.2615, 
+            latitude: 20.794427, 
             altitude: 1000.0,
-            description: '<div><h3>Lothal Museum (NMHC)</h3><p>National Maritime Heritage Complex is the Heritage Museum being built at Lothal. We are working on Phase IA of the project.</p></div>',
-            pinDescription: '<div><h3>Lothal Museum (NMHC)</h3><p>Ahmedabad, Gujarat</p></div>',
-            model: 'Assets/Lothal textured mesh.glb',
-            scale: 200,
-            cameraViews: [
-                { // Top view
-                    longitude: 72.23992864,
-                    latitude: 22.50840567,
-                    altitude: 2000.0,
-                    heading: Cesium.Math.toRadians(0),
-                    pitch: Cesium.Math.toRadians(-90),
-                    roll: Cesium.Math.toRadians(0)
-                },
-                { // Side view
-                    longitude: 72.23992864 -0.008, // Adjusted longitude offset
-                    latitude: 22.50840567,
-                    altitude: 500.0,
-                    heading: Cesium.Math.toRadians(90), // Facing towards the side
-                    pitch: Cesium.Math.toRadians(-30),
-                    roll: Cesium.Math.toRadians(0)
-                }
-            ],
-            modelOrientation: {
-                heading: Cesium.Math.toRadians(0), // Example heading
-                pitch: Cesium.Math.toRadians(0),    // Example pitch
-                roll: Cesium.Math.toRadians(0)     // Example roll
+            description: `
+                <div>
+                <img src="Assets/Angul.png" alt="Angul" class="image-style-small">
+                    <h3>Angul Plant</h3>
+                    <p class="description description-1">Coke Oven and Blast Furnace Plant from JSOL at Angul</p>
+                <p class="description Location">Angul, Odisha</p>
+                </div>
+            `,
+            pinDescription: `
+                <div>
+                <img src="Assets/Angul.png" alt="Angul" class="image-style">
+                    <h3>Angul Plant</h3>
+                    <p class="description description-1">Coke Oven and Blast Furnace Plant from JSOL at Angul</p>
+                <p class="description Location">Angul, Odisha</p>
+                </div>
+            `,
+            model: 'Assets/mv_spartan.glb',
+            scale: 100,          
+            cameraViews: 
+            [
+            { // Top view
+                longitude: 85.2615,
+                latitude: 20.794427,
+                altitude: 6000.0,
+                heading: Cesium.Math.toRadians(0),
+                pitch: Cesium.Math.toRadians(-90),
+                roll: Cesium.Math.toRadians(0)
+            },
+            { // Side view
+                longitude: 85.2615 -0.022, // Adjusted longitude offset
+                latitude: 20.794427,
+                altitude: 1500.0,
+                heading: Cesium.Math.toRadians(90), // Facing towards the side
+                pitch: Cesium.Math.toRadians(-30),
+                roll: Cesium.Math.toRadians(0)
+            },
+            { // Side view
+                longitude: 85.2615 +0.022, // Adjusted longitude offset
+                latitude: 20.794427,
+                altitude: 1500.0,
+                heading: Cesium.Math.toRadians(260), // Facing towards the side
+                pitch: Cesium.Math.toRadians(-30),
+                roll: Cesium.Math.toRadians(0)
             }
+        ],
+        modelOrientation: {
+            heading: Cesium.Math.toRadians(-10), // Example heading
+            pitch: Cesium.Math.toRadians(0),   // Example pitch
+            roll: Cesium.Math.toRadians(0)     // Example roll
         }
+    },  
     ];
-    
-
      // Slideshow and progress bar logic
      var slideshowRunning = false;
      var currentLocationIndex = 0;
@@ -217,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  pitch: view.pitch,
                  roll: view.roll
              },
-             duration: 3.0,
+             duration: 7.0,
              complete: function() {
                  // Restart progress bar after moving to the new location
                  resetProgressBar();
@@ -234,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
              if (currentViewIndex === 0) {
                  currentLocationIndex = (currentLocationIndex + 1) % locations.length;
              }
-         }, 5000);
+         }, 7000); // 7 seconds per view
  
          if (!progressRunning) {
              resetProgressBar(); // Initialize progress bar for the first location
@@ -268,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  clearInterval(progressIntervalId);
                  progressRunning = false;
              }
-         }, 20); // Adjust the interval duration to match the transition time
+         }, 700); // Adjust the interval duration to match the transition time
      }
  
      document.getElementById('slideshowButton').addEventListener('click', function() {
@@ -306,8 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const pinEntity = viewer.entities.add({
             position: Cesium.Cartesian3.fromDegrees(location.longitude, location.latitude, location.altitude),
             billboard: {
-                image: 'Assets/Dotmarker.svg', // Path to your pin image
-                scale: 0.05,
+                image: 'Assets/Default.png', // Path to your pin image
+                scale: 0.4,
                 show: true // Initially show the pin
             },
             id: `pin-${location.longitude}-${location.latitude}`,
@@ -373,3 +484,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Entities added:', viewer.entities.values);
 });
+
+
+                

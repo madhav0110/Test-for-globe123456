@@ -79,26 +79,76 @@ html, body, #cesiumContainer {
 #hover-card {
     position: absolute;
     display: none; /* Initially hidden */
-    background-color: #6595BF;
+    background-color: #ffffff;
     border: 1px solid #ccc;
-    text-align: center;
     border-radius: 8px;
-    color: white;
+    color: rgb(0, 0, 0);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 10px;
-    max-width: 200px;
+    max-width: 300px; /* Adjust width as needed */
     z-index: 1000; /* Ensure it is above other elements */
+    /* Positioning relative to its container */
+}
+#hover-card h3 {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    left: 140px; /* Adjust left position to be right of the image */
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 20px; /* Adjust font size as needed */
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: bolder;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Handle long words in modern browsers */
+    
+}
+
+#hover-card .description {
+    margin: 5px 0; /* Adjust margins as needed */
+    text-align: left; /* Align text to the left */
+    font-weight: normal; /* Normal font weight */
+}
+
+/* Specific styles for the first description paragraph */
+#hover-card .Location {
+    position: absolute;
+    top: 60px; /* Adjust the top position as needed */
+    left: 140px; /* Adjust the left position as needed */
+    font-size: 15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #619EFF;
+
+}
+
+/* Specific styles for the second description paragraph */
+#hover-card .description-1 {
+    position: relative;
+    top: 0px; /* Adjust the top position as needed */
+    left: 0px; /* Adjust the left position as needed */
+    font-size: 15px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color:#A0AABC;
+    ;
+    /* Additional styles as needed */
 }
 
 
-/* Style for pin hover card */
-.pin-hover-card {
-    background-color: lightblue;
-    border-color: blue;
+.image-style {
+    position: relative; /* Change from static to relative */
+    width: 40%; /* Adjust the width percentage as needed */
+    height: auto; /* Maintain aspect ratio */
+    left: 0%; /* Move the image to the left */
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-/* Style for model hover card */
-.model-hover-card {
-    background-color: lightgreen;
-    border-color: green;
+
+.image-style-small {
+    position: relative; /* Change from static to relative */
+    width: 40%; /* Adjust the width percentage as needed */
+    height: auto; /* Maintain aspect ratio */
+    left: 0%; /* Move the image to the left */
+    border-radius: 5px;
+    margin-bottom: 10px;
 }

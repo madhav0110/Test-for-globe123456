@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cesium Globe with Custom Buttons</title>
+    <title>Globe</title>
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
-   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="cesiumContainer"></div>
@@ -41,29 +43,38 @@
     <button id="slideshowButton" class="customButton">
         <!-- Slideshow Button SVG -->
         <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_bd_1_158)">
+            <g filter="url(#filter0_bd_38_3)">
                 <rect width="64" height="64" rx="32" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 82)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
-                <path d="M52.9998 56.0002V58.0002H56.9998V60.0002H46.9998V58.0002H50.9998V56.0002H42.9998C42.4475 56.0002 41.9998 55.5525 41.9998 55.0002V42.0002C41.9998 41.4479 42.4475 41.0002 42.9998 41.0002H60.9998C61.5521 41.0002 61.9998 41.4479 61.9998 42.0002V55.0002C61.9998 55.5525 61.5521 56.0002 60.9998 56.0002H52.9998ZM49.9998 45.5002V51.5002L54.9998 48.5002L49.9998 45.5002Z" fill="white"/>
+                <path d="M53 56.0002V58.0002H57V60.0002H47V58.0002H51V56.0002H43C42.4477 56.0002 42 55.5525 42 55.0002V42.0002C42 41.4479 42.4477 41.0002 43 41.0002H61C61.5523 41.0002 62 41.4479 62 42.0002V55.0002C62 55.5525 61.5523 56.0002 61 56.0002H53ZM50 45.5002V51.5002L55 48.5002L50 45.5002Z" fill="white"/>
             </g>
             <defs>
-                <filter id="filter0_bd_1_158" x="-4" y="-6" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <filter id="filter0_bd_38_3" x="-4" y="-6" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                     <feGaussianBlur in="BackgroundImageFix" stdDeviation="12"/>
-                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_158"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_38_3"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                     <feOffset dy="2"/>
                     <feGaussianBlur stdDeviation="10"/>
                     <feComposite in2="hardAlpha" operator="out"/>
                     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
-                    <feBlend mode="normal" in2="effect1_backgroundBlur_1_158" result="effect2_dropShadow_1_158"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_158" result="shape"/>
+                    <feBlend mode="normal" in2="effect1_backgroundBlur_38_3" result="effect2_dropShadow_38_3"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_38_3" result="shape"/>
                 </filter>
             </defs>
         </svg>
+        
     </button>
 
-    <!-- Placeholder for hover card -->
-    <div id="hover-card" class="hover-card"></div>
+    <div id="hover-card">
+        <h3>Heading Here</h3>
+        <div class="Location">
+            <p>Description 1 goes here.</p>
+        </div>
+        <div class="description-1">
+            <p>Description 2 goes here.</p>
+        </div>
+    </div>
+    
 
     <script src="script.js"></script> <!-- Link to the external JavaScript file -->
 </body>
