@@ -40,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             longitude: 73.735145, 
             latitude: 18.67976, 
-            altitude: 20.0,
+            altitude: 10.0,
             description: `
             <div>
-                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style-small">
+                <img src="Assets/PuneMetro.png" alt="Pune Metro Line Image" class="image-style-small">
                 <h3>Pune Metro Line 03 (PMR -10)</h3>
                 <p class="description description-1">Pune Metro Line 03 is of 23 km length elevated metro corridor consists 23 stations. Currently we are working on one specific Metro Station PMR10 at Balewadi Stadium.</p>
                 <p class="description Location">Pune, Maharashtra </p>
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         pinDescription: `
             <div>
-                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style">
+                <img src="Assets/PuneMetro.png" alt="Pune Metro Line Image" class="image-style">
                 <h3>Pune Metro Line 03 (PMR -10)</h3>
                 <p class="description description-1">Pune Metro Line 03 is of 23 km length elevated metro corridor consists 23 stations. Currently we are working on one specific Metro Station PMR10 at Balewadi Stadium.</p>
                 <p class="description Location">Pune, Maharashtra </p>
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             altitude: 10.0,
             description: `
             <div>
-                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style-small">
+                <img src="Assets/PuneMetro.png" alt="Pune Metro Line Image" class="image-style-small">
                 <h3>Anant University</h3>
                 <p class="description description-1">Student Housing, Academic Blocks constructed in Phase 2 of the Anant University Expansion.</p>
                 <p class="description Location">Ahmedabad, Gujarat</p>
@@ -159,14 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         pinDescription: `
             <div>
-                <img src="Assets/PuneMetro.jpg" alt="Pune Metro Line Image" class="image-style">
+                <img src="Assets/PuneMetro.png" alt="Pune Metro Line Image" class="image-style">
                 <h3>Anant University</h3>
                 <p class="description description-1">Student Housing, Academic Blocks constructed in Phase 2 of the Anant University Expansion.</p>
                 <p class="description Location">Ahmedabad, Gujarat</p>
             </div>
         `,
-            model: 'Assets/basic_factory_modeling.glb',
-            scale: 4,
+            model: 'Assets/Housing.glb',
+            scale: 0.3,
             cameraViews: [
                 { // Top view
                     longitude: 72.425432,
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { // Side view
                     longitude: 72.425432 -0.002, // Adjusted longitude offset
                     latitude: 23.026609,
-                    altitude: 100.0,
+                    altitude: 150.0,
                     heading: Cesium.Math.toRadians(90), // Facing towards the side
                     pitch: Cesium.Math.toRadians(-30),
                     roll: Cesium.Math.toRadians(0)
@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { // Side view
                     longitude: 72.425432 +0.002, // Adjusted longitude offset
                     latitude: 23.026609,
-                    altitude: 100.0,
+                    altitude: 150.0,
                     heading: Cesium.Math.toRadians(260), // Facing towards the side
                     pitch: Cesium.Math.toRadians(-30),
                     roll: Cesium.Math.toRadians(0)
@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 roll: Cesium.Math.toRadians(0)      // Example roll
             }
         },
+        
         {
             longitude: 72.259218, 
             latitude: 22.974892, 
@@ -273,8 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="description Location">Angul, Odisha</p>
                 </div>
             `,
-            model: 'Assets/mv_spartan.glb',
-            scale: 100,          
+            model: 'Assets/basic_factory_modeling.glb',
+            scale: 40,          
             cameraViews: 
             [
             { // Top view
