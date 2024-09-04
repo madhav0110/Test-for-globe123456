@@ -14,7 +14,7 @@
 <body>
     <div id="cesiumContainer"></div>
     <div id="slideshowButtonContainer">
-        <div id="progressContainer">
+        <div id="pfrogressContainer">
             <div id="progress-bar"></div>
         </div>
     </div>
@@ -42,28 +42,49 @@
         </svg>
     </button>
     <button id="slideshowButton" class="customButton">
-        <!-- Slideshow Button SVG -->
-        <svg viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_bd_38_3)">
-                <rect width="64" height="64" rx="32" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 82)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
-                <path d="M53 56.0002V58.0002H57V60.0002H47V58.0002H51V56.0002H43C42.4477 56.0002 42 55.5525 42 55.0002V42.0002C42 41.4479 42.4477 41.0002 43 41.0002H61C61.5523 41.0002 62 41.4479 62 42.0002V55.0002C62 55.5525 61.5523 56.0002 61 56.0002H53ZM50 45.5002V51.5002L55 48.5002L50 45.5002Z" fill="white"/>
+        <!-- Play Icon SVG -->
+        <svg id="play-icon" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_bd_181_284)">
+                <rect width="56" height="56" rx="28" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 74)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                <path d="M49 52V54H53V56H43V54H47V52H39C38.4477 52 38 51.5523 38 51V38C38 37.4477 38.4477 37 39 37H57C57.5523 37 58 37.4477 58 38V51C58 51.5523 57.5523 52 57 52H49ZM46 41.5V47.5L51 44.5L46 41.5Z" fill="white"/>
             </g>
             <defs>
-                <filter id="filter0_bd_38_3" x="-4" y="-6" width="112" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <filter id="filter0_bd_181_284" x="0" y="0" width="96" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="12"/>
-                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_38_3"/>
+                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_181_284"/>
                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                     <feOffset dy="2"/>
                     <feGaussianBlur stdDeviation="10"/>
                     <feComposite in2="hardAlpha" operator="out"/>
                     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
-                    <feBlend mode="normal" in2="effect1_backgroundBlur_38_3" result="effect2_dropShadow_38_3"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_38_3" result="shape"/>
+                    <feBlend mode="normal" in2="effect1_backgroundBlur_181_284" result="effect2_dropShadow_181_284"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_181_284" result="shape"/>
                 </filter>
             </defs>
         </svg>
-        
+    
+        <!-- Pause Icon SVG -->
+        <svg id="pause-icon" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_bd_181_290)">
+                <rect width="56" height="56" rx="28" transform="matrix(1 -8.74228e-08 -8.74228e-08 -1 20 74)" fill="white" fill-opacity="0.1" shape-rendering="crispEdges"/>
+                <path d="M48 34C41.376 34 36 39.376 36 46C36 52.624 41.376 58 48 58C54.624 58 60 52.624 60 46C60 39.376 54.636 34 48 34ZM46.5 49.636C46.5 50.212 46.26 50.44 45.648 50.44H44.088C43.476 50.44 43.236 50.212 43.236 49.636V42.364C43.236 41.788 43.476 41.56 44.088 41.56H45.636C46.248 41.56 46.488 41.788 46.488 42.364V49.636H46.5ZM52.836 49.636C52.836 50.212 52.596 50.44 51.984 50.44H50.436C49.824 50.44 49.584 50.212 49.584 49.636V42.364C49.584 41.788 49.824 41.56 50.436 41.56H51.984C52.596 41.56 52.836 41.788 52.836 42.364V49.636Z" fill="white"/>
+            </g>
+            <defs>
+                <filter id="filter0_bd_181_290" x="0" y="0" width="96" height="96" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
+                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_181_290"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="2"/>
+                    <feGaussianBlur stdDeviation="10"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+                    <feBlend mode="normal" in2="effect1_backgroundBlur_181_290" result="effect2_dropShadow_181_290"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_181_290" result="shape"/>
+                </filter>
+            </defs>
+        </svg>
     </button>
 
     <div id="hover-card">

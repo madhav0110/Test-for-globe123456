@@ -13,26 +13,51 @@ html, body, #cesiumContainer {
 }
 
 /* Style for the button */
-#slideshow-button {
-    background: transparent;
+#slideshowButton {
+    position: absolute;
+    bottom: 10vh; /* Adjusted position relative to viewport height */
+    right: 10vw; /* Adjusted position relative to viewport width */
+    width: 10vw; /* Width relative to viewport width */
+    height: 10vw; /* Height relative to viewport width (maintains aspect ratio) */
+    max-width: 900px; /* Cap the maximum size */
+    max-height: 900px; /* Cap the maximum size */
     border: none;
     cursor: pointer;
-    padding: 0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* Style for the button image */
-#slideshow-button img {
-    width: 40px; /* Adjust the size as needed */
-    height: auto;
+/* Play/Pause button styles */
+#slideshowButton svg {
+    width: 100%; /* Ensure consistent icon size */
+    height: 100%;
+    object-fit: contain; /* Ensure SVG scales properly */
 }
 
+/* Ensure that the play and pause SVGs are consistent in size */
+#play-icon, #pause-icon {
+    width: 100%; /* Ensure consistent icon size */
+    height: 100%;
+    object-fit: contain; /* Ensure SVG scales properly */
+    display: none; /* Hide both icons by default */
+}
+
+/* Initially display play icon */
+#play-icon {
+    display: block;
+}
+
+/* Style for progress bar */
 #progressContainer {
     position: absolute;
-    bottom: 210px;
-    right: -1px;
+    bottom: 15vh; /* Adjusted position relative to viewport height */
+    right: 0vw; /* Adjusted position relative to viewport width */
     transform: translateX(-50%);
-    width: 40px;
-    height: 5px;
+    width: 4vw; /* Width relative to viewport width */
+    height: 0.5vh; /* Height relative to viewport height */
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     overflow: hidden;
@@ -47,35 +72,42 @@ html, body, #cesiumContainer {
     border-radius: 5px;
 }
 
-
 /* Button common styles */
 .customButton {
-    width: 80px;
-    height: 80px;
+    width: 8vw; /* Width relative to viewport width */
+    height: 8vw; /* Height relative to viewport width (maintains aspect ratio) */
+    max-width: 80px; /* Cap the maximum size */
+    max-height: 80px; /* Cap the maximum size */
     border: none; /* Remove border */
     cursor: pointer;
     z-index: 1000;
     background: transparent; /* Remove default background */
+    display: flex; /* Center content */
+    justify-content: center;
+    align-items: center;
 }
 
-.customButton svg {
-    width: 100%;
-    height: 100%;
-}
-
- /* Positioning for home button */
- #customHomeButton {
+/* Positioning for home button */
+#customHomeButton {
     position: absolute;
-    bottom: 260px;
-    right: 0px;
+    bottom: 20vh; /* Adjusted position relative to viewport height */
+    right: 2vw; /* Adjusted position relative to viewport width */
+    width: 10vw; /* Width relative to viewport width */
+    height: 10vw; /* Height relative to viewport width (maintains aspect ratio) */
+    max-width: 900px; /* Cap the maximum size */
+    max-height: 900px; /* Cap the maximum size */
+    
 }
 
-/* Positioning for slideshow button */
-#slideshowButton {
-    position: absolute;
-    bottom: 200px;
-    right: 0px;
+/* Show pause icon when active */
+#slideshowButton.active #play-icon {
+    display: none;
 }
+
+#slideshowButton.active #pause-icon {
+    display: block;
+}
+
 #hover-card {
     position: absolute;
     display: none; /* Initially hidden */
@@ -84,28 +116,28 @@ html, body, #cesiumContainer {
     border-radius: 8px;
     color: rgb(0, 0, 0);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    padding: 10px;
-    max-width: 300px; /* Adjust width as needed */
+    padding: 2vw; /* Padding relative to viewport width */
+    max-width: 40vw; /* Max width relative to viewport width */
     z-index: 1000; /* Ensure it is above other elements */
     /* Positioning relative to its container */
 }
+
 #hover-card h3 {
     position: absolute;
-    top: 10px; /* Adjust top position as needed */
-    left: 140px; /* Adjust left position to be right of the image */
+    top: 1vh; /* Adjust top position relative to viewport height */
+    left: 2vw; /* Adjust left position relative to viewport width */
     margin: 0;
     color: rgb(0, 0, 0);
-    font-size: 20px; /* Adjust font size as needed */
+    font-size: 4vw; /* Font size relative to viewport width */
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: bolder;
     white-space: normal; /* Allow text to wrap */
     word-wrap: break-word; /* Break long words if necessary */
     overflow-wrap: break-word; /* Handle long words in modern browsers */
-    
 }
 
 #hover-card .description {
-    margin: 5px 0; /* Adjust margins as needed */
+    margin: 1vw 0; /* Margins relative to viewport width */
     text-align: left; /* Align text to the left */
     font-weight: normal; /* Normal font weight */
 }
@@ -113,67 +145,67 @@ html, body, #cesiumContainer {
 /* Specific styles for the first description paragraph */
 #hover-card .Location {
     position: absolute;
-    top: 60px; /* Adjust the top position as needed */
-    left: 140px; /* Adjust the left position as needed */
-    font-size: 15px;
+    top: 6vh; /* Adjust top position relative to viewport height */
+    left: 2vw; /* Adjust left position relative to viewport width */
+    font-size: 3vw; /* Font size relative to viewport width */
     font-family: "Plus Jakarta Sans", sans-serif;
     color: #619EFF;
-
 }
 
 /* Specific styles for the second description paragraph */
 #hover-card .description-1 {
     position: relative;
-    top: 0px; /* Adjust the top position as needed */
-    left: 0px; /* Adjust the left position as needed */
-    font-size: 15px;
+    top: 0; /* Adjust the top position as needed */
+    left: 0; /* Adjust the left position as needed */
+    font-size: 3vw; /* Font size relative to viewport width */
     font-family: "Plus Jakarta Sans", sans-serif;
-    color:#A0AABC;
-    ;
+    color: #A0AABC;
     /* Additional styles as needed */
 }
 
-
 .image-style {
     position: relative; /* Change from static to relative */
-    width: 40%; /* Adjust the width percentage as needed */
+    width: 40vw; /* Width relative to viewport width */
     height: auto; /* Maintain aspect ratio */
     left: 0%; /* Move the image to the left */
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 2vw; /* Margin relative to viewport width */
 }
-
 
 .image-style-small {
     position: relative; /* Change from static to relative */
-    width: 40%; /* Adjust the width percentage as needed */
+    width: 40vw; /* Width relative to viewport width */
     height: auto; /* Maintain aspect ratio */
     left: 0%; /* Move the image to the left */
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 2vw; /* Margin relative to viewport width */
 }
 
+
 /* Media queries for mobile responsiveness */
-@media (max-width: 2561px) {
+@media (min-width: 2560px) {
 
     /* Adjusting button and container sizes for smaller screens */
     #slideshow-button img, .customButton {
-        width: 170px; /* Smaller button size */
+        width: 270px; /* Smaller button size */
         height: auto;
     }
 
     #customHomeButton {
-        bottom: 520px; /* Position lower on screen */
+        top: 40%; /* Position lower on screen */
+        width: 15vh;
+        height: auto;
         right: 0px; /* Adjust right position */
     }
 
     #slideshowButton {
-        bottom: 400px; /* Position lower on screen */
+        bottom: 40%; /* Position lower on screen */
+        width: 15vh;
         right: 0px; /* Adjust right position */
     }
 
     #progressContainer {
-        bottom: 410px; /* Adjust to fit smaller screens */
+        bottom: 33%; /* Adjust to fit smaller screens */
         width: 85px; /* Adjust width */
         height: 12px;
     }
@@ -206,7 +238,7 @@ html, body, #cesiumContainer {
     }
 }
 /* Media queries for mobile responsiveness */
-@media (max-width: 1441px) {
+@media (min-width: 1440px) and (max-width: 2559px) {
 
     /* Adjusting button and container sizes for smaller screens */
     #slideshow-button img, .customButton {
@@ -215,12 +247,14 @@ html, body, #cesiumContainer {
     }
 
     #customHomeButton {
-        bottom: 280px; /* Position lower on screen */
+        top: 25%; /* Position lower on screen */
+        width: 8vw;
         right: 0px; /* Adjust right position */
     }
 
     #slideshowButton {
-        bottom: 220px; /* Position lower on screen */
+        bottom: 35%; /* Position lower on screen */
+        width: 8vw;
         right: 0px; /* Adjust right position */
     }
 
@@ -259,7 +293,7 @@ html, body, #cesiumContainer {
     }
 }
 /* Media queries for mobile responsiveness */
-@media (max-width: 1025px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
 
     /* Adjusting button and container sizes for smaller screens */
     #slideshow-button img, .customButton {
@@ -268,17 +302,19 @@ html, body, #cesiumContainer {
     }
 
     #customHomeButton {
-        bottom: 235px; /* Position lower on screen */
+        top: 25%; /* Position lower on screen */
+        width: 8vw;
         right: 0px; /* Adjust right position */
     }
 
     #slideshowButton {
-        bottom: 190px; /* Position lower on screen */
+        bottom: 40%; /* Position lower on screen */
+        width: 8vw;
         right: 0px; /* Adjust right position */
     }
 
     #progressContainer {
-        bottom: 195px; /* Adjust to fit smaller screens */
+        bottom: 40%; /* Adjust to fit smaller screens */
         width: 35px; /* Adjust width */
         right: 0px;
         height: 6px;
@@ -312,27 +348,33 @@ html, body, #cesiumContainer {
 }
 
 /* Media queries for mobile responsiveness */
-@media (max-width: 769px) {
+@media (min-width: 768px) and (max-width: 994px) {
 
     /* Adjusting button and container sizes for smaller screens */
-    #slideshow-button img, .customButton {
-        width: 70px; /* Smaller button size */
-        height: auto;
-    }
-
-    #customHomeButton {
-        bottom: 230px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
-    }
-
     #slideshowButton {
-        bottom: 180px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
+        bottom: 40%;
+        right: 0vw;
+        width: 10vw;
+        height: 10vw;
     }
 
     #progressContainer {
-        bottom: 185px; /* Adjust to fit smaller screens */
-        width: 35px; /* Adjust width */
+        bottom: 42%;
+        right: 0vw;
+        width: vh;
+        height: 1vh;
+    }
+
+    .customButton {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    #customHomeButton {
+        top: 35%;
+        right: 0vw;
+        width: 10vw;
+        height: 10vw;
     }
 
     #hover-card {
@@ -363,28 +405,33 @@ html, body, #cesiumContainer {
     }
 }
 /* Media queries for mobile responsiveness */
-@media (max-width: 426px) {
+@media (min-width: 576px) and (max-width: 767.98px) {
 
     /* Adjusting button and container sizes for smaller screens */
-    #slideshow-button img, .customButton {
-        width: 60px; /* Smaller button size */
-        height: auto;
-    }
-
-    #customHomeButton {
-        bottom: 230px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
-    }
-
     #slideshowButton {
-        bottom: 190px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
+        bottom: vh;
+        right: 0vw;
+        width: 20vw;
+        height: 20vw;
     }
 
     #progressContainer {
-        bottom: 195px; /* Adjust to fit smaller screens */
-        width: 30px; /* Adjust width */
-        height: 6px;
+        bottom: vh;
+        right: 0vw;
+        width: vh;
+        height: vh;
+    }
+
+    .customButton {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    #customHomeButton {
+        bottom: vh;
+        right: 0vw;
+        width: 20vw;
+        height: 20vw;
     }
 
     #hover-card {
@@ -413,70 +460,23 @@ html, body, #cesiumContainer {
         width: 50%; /* Increase width for smaller screens */
     }
 }
-@media (max-width: 376px) {
-
+@media (max-width: 575.98px) {
     /* Adjusting button and container sizes for smaller screens */
     #slideshow-button img, .customButton {
-        width: 60px; /* Smaller button size */
+        width: 100px; /* Smaller button size */
         height: auto;
     }
 
     #customHomeButton {
         bottom: 230px; /* Position lower on screen */
+        width: 60px;
         right: 0px; /* Adjust right position */
     }
 
     #slideshowButton {
         bottom: 190px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
-    }
-
-    #progressContainer {
-        bottom: 195px; /* Adjust to fit smaller screens */
-        width: 30px; /* Adjust width */
-        height: 6px;
-    }
-
-    #hover-card {
-        max-width: 150px; /* Allow hover card to take more width on small screens */
-        left: 5%; /* Center the hover card */
-        top: 20px; /* Adjust top position */
-        padding: 5px; /* Adjust padding for smaller screens */
-    }
-
-    #hover-card h3 {
-        left: 55%; /* Adjust positions */
-        font-size: 8px; /* Adjust font size */
-    }
-
-    #hover-card .Location{
-        left: 55%; /* Adjust positions */
-        font-size: 8px; /* Adjust font size */} 
-    
-        #hover-card .description-1 {
-        left: 10px; /* Adjust positions */
-        font-size: 7px; /* Adjust font size */
-    }
-
-    .image-style, .image-style-small {
-        width: 50%; /* Increase width for smaller screens */
-    }
-}
-@media (max-width: 321px) {
-
-    /* Adjusting button and container sizes for smaller screens */
-    #slideshow-button img, .customButton {
-        width: 60px; /* Smaller button size */
+        width: 60px;
         height: auto;
-    }
-
-    #customHomeButton {
-        bottom: 230px; /* Position lower on screen */
-        right: 0px; /* Adjust right position */
-    }
-
-    #slideshowButton {
-        bottom: 190px; /* Position lower on screen */
         right: 0px; /* Adjust right position */
     }
 
